@@ -80,6 +80,47 @@ class LogHorizon {
                 callback([])
             }
         }
+
+
+        func addItem(name: String, store storeName: String, notes: String?, then callback: @escaping (Item) -> Void) {
+            let groupKey = self.groupKey!
+            ref.child("groups/\(groupKey)/stores/\(storeName)").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.value != nil {
+                    let storeKey = snapshot.value as! String
+                    return self.addItemHelper(name, notes, storeKey, storeName, callback)
+                }
+
+                let newStore = ref.child("stores").childByAutoId()
+
+                ref.child("groups/\(groupKey)/stores/\(storeName)").runTransactionBlock({ (data) -> TransactionResult in
+                    if data.value != nil {
+                        return TransactionResult.abort()
+                    }
+                    data.value = newStore.key
+                    return TransactionResult.success(withValue: data)
+                }, andCompletionBlock: { (error, success, data) in
+                    if success {
+                        newStore.setValue(storeName, forKey: "name")
+                    }
+                    else {
+                        newStore.removeValue()
+                    }
+                    let storeKey = data!.value as! String
+                    self.addItemHelper(name, notes, storeKey, storeName, callback)
+                })
+            })
+        }
+        // DO NOT CALL
+        private func addItemHelper(_ name: String, _ notes: String?, _ storeKey: String, _ storeName: String, _ callback: (Item) -> Void) {
+            let item = ref.child("stores/\(storeKey)/items").childByAutoId()
+            item.updateChildValues([
+                "name": name,
+                "notes": notes ?? "",
+                "userPhone": self.phone,
+                "addedAt": "2018",
+            ])
+            callback(Item(item.key, name, notes, self.phone, "2018", storeKey, storeName))
+        }
     }
 
     class UserPtr {
