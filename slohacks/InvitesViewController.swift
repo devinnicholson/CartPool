@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class InvitesViewController: UIViewController {
-
+class InvitesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var phoneNumber: String!
+    var invites = [String]()
     
+    @IBOutlet weak var invitesTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Globals.ref.child("invites/\(phoneNumber)").observeSingleEvent(of: .value, with: { (snapshot) in
+        print(phoneNumber)
+        Globals.ref.child("invites/\(phoneNumber!)").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let groupKey = value?["groupKey"] as? String ?? ""
             let fromUserKey = value?["fromUserKey"] as? String ?? ""
             Globals.ref.child("users/\(fromUserKey)/name").observeSingleEvent(of: .value, with: { (snapshot) in
                 let fromUserName = snapshot.value as? String ?? "IT'S A MYSTERY"
-                
+                let inviteStr = String(snapshot.value! as! String)
+                self.invites.append(inviteStr)
                 // display "You've been invited to \(fromUserName)'s group. Accept? [y/n]"
             })
         })
@@ -29,10 +32,18 @@ class InvitesViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return invites.count
     }
     
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = invites[indexPath.row]
+        
+        return cell
+    }
     /*
     // MARK: - Navigation
 

@@ -28,7 +28,6 @@ class CodeViewController: UIViewController {
 
     @IBAction func verifyCode(_ sender: UIButton) {
         Globals.ref.child("verifications/\(self.phoneNumber!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
             let remoteCode = String(snapshot.value! as! Int)
             if self.codeTextField.text != remoteCode {
                 // goto phone number screen with error

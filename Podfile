@@ -8,6 +8,7 @@ target 'slohacks' do
   # Pods for slohacks
   
     pod 'Firebase/Core'
+    pod 'Firebase/Database'
     pod 'GooglePlaces'
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
