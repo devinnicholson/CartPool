@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ha8-Ey-drE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ieb-u3-beq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -439,10 +439,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ha8-Ey-drE" kind="showDetail" id="P5j-p5-HdS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHI-jZ-Klc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacts-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="GHI-jZ-Klc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -596,6 +599,10 @@
                                     <action selector="addItem:" destination="RU1-kX-50p" eventType="touchUpInside" id="Hak-b5-Sgf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="additems-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="WxU-dM-fP1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -649,12 +656,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="members-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="VcD-ij-OTu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="members-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="VcD-ij-OTu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="Njr-zN-lub"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VcD-ij-OTu" firstAttribute="leading" secondItem="eiH-pi-YeP" secondAttribute="leading" id="3P9-CV-2eX"/>
+                            <constraint firstItem="VcD-ij-OTu" firstAttribute="trailing" secondItem="eiH-pi-YeP" secondAttribute="trailing" id="F8u-kt-kvU"/>
+                            <constraint firstItem="VcD-ij-OTu" firstAttribute="top" secondItem="Qxm-tn-ad7" secondAttribute="top" id="R48-WV-wqU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eiH-pi-YeP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Groups" image="group-icon.png" id="YVa-LD-l4L"/>
@@ -669,7 +683,9 @@
     </scenes>
     <resources>
         <image name="add-icon.png" width="20" height="21"/>
+        <image name="additems-header.png" width="414" height="116"/>
         <image name="authentication.png" width="414" height="736"/>
+        <image name="contacts-header.png" width="414" height="118"/>
         <image name="group-icon.png" width="18" height="21"/>
         <image name="home-icon.png" width="21" height="19"/>
         <image name="invites_groups.png" width="414" height="736"/>

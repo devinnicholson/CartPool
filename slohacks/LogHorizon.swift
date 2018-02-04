@@ -85,9 +85,7 @@ class LogHorizon {
         func addItem(name: String, store storeName: String, notes: String?, then callback: @escaping (Item) -> Void) {
             let groupKey = self.groupKey!
             ref.child("groups/\(groupKey)/stores/\(storeName)").observeSingleEvent(of: .value, with: { (snapshot) in
-                print(snapshot)
-                print (snapshot.key)
-                if (snapshot.exists()) {
+                 if (snapshot.exists()) {
                     let storeKey = snapshot.value as! String
                     return self.addItemHelper(name, notes, storeKey, storeName, callback)
                 }
@@ -114,6 +112,7 @@ class LogHorizon {
         }
         // DO NOT CALL
         private func addItemHelper(_ name: String, _ notes: String?, _ storeKey: String, _ storeName: String, _ callback: (Item) -> Void) {
+            ref.child("stores/\(storeKey)/name").setValue(storeName) 
             let item = ref.child("stores/\(storeKey)/items").childByAutoId()
             item.updateChildValues([
                 "name": name,

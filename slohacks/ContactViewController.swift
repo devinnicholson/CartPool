@@ -14,7 +14,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     var contactStore = CNContactStore()
     
     var contacts = [
-        ContactStruct(firstName: "Hi", lastName: "hi3", number: "12345"),        ContactStruct(firstName: "Hi3", lastName: "hi33", number: "123435")
+        ContactStruct(firstName: "Devin", lastName: "Nicholson", number: "xxx-814-9260"),        ContactStruct(firstName: "Joe", lastName: "Wijoyo", number: "xxx-554-0991")
     ]
     
     @IBOutlet weak var contactTableView: UITableView!
