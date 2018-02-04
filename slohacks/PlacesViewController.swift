@@ -9,19 +9,23 @@
 import UIKit
 import FirebaseDatabase
 
-class PlacesViewController: UIViewController{
+class PlacesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var ref: DatabaseReference?
-    var placesData = [String]()
+    var storesData = [LogHorizon.StorePtr]()
     
-    @IBOutlet weak var placesList: UITableView!
+    @IBOutlet weak var storesTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //placesList.delegate = self
-       // placesList.backgroundView = UIImageView(image: UIImage(named: "gradient_background.png"))
-
+        storesTable.delegate = self
+        storesTable.dataSource = self
         
+        LogHorizon.fetchUserBy(phone: "6508149260", { (user) in
+            user!.groupStores({ (stores) in
+                self.storesData = stores!
+            })
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +34,16 @@ class PlacesViewController: UIViewController{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placesData.count
+        return storesData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoresTableViewCell", for: indexPath)
+        let storeItem = storesData[indexPath.row]
+        cell.textLabel!.text = storeItem.name
+        //cell.detailTextLabel!.text = ""
+            
+        return cell
     }
     
     /*
