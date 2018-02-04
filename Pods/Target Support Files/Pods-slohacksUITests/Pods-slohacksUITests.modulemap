@@ -1,0 +1,6 @@
+framework module Pods_slohacksUITests {
+  umbrella header "Pods-slohacksUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
