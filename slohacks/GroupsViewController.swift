@@ -8,13 +8,24 @@
 
 import UIKit
 
-class GroupsViewController: UIViewController {
+class GroupsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var groupList: UITableView!
+    
+    var members = [
+        ContactStruct(firstName: "Joe", lastName: "Wijoyo", number: "7142134513"),
+        ContactStruct(firstName: "Karen", lastName: "Kauffman", number: "5369324443"),
+        ContactStruct(firstName: "Barrett", lastName: "Lo", number: "7143059942"),
+        ContactStruct(firstName: "Cidney", lastName: "Lee", number: "6930032324"),
+        ContactStruct(firstName: "Hanna", lastName: "Trejo", number: "3105560012"),
+        ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        groupList.dataSource = self
+        groupList.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,5 +43,17 @@ class GroupsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var tableViewCell: UITableViewCell
+        tableViewCell = tableView.dequeueReusableCell(withIdentifier: "MemberCell")!
+        tableViewCell.textLabel?.text = self.members[indexPath.row].firstName + " | " + self.members[indexPath.row].lastName
+        return tableViewCell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members.count
+    }
 
 }

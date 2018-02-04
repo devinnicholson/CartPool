@@ -14,8 +14,14 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     var contactStore = CNContactStore()
     
     var contacts = [
-        ContactStruct(firstName: "Devin", lastName: "Nicholson", number: "xxx-814-9260"),        ContactStruct(firstName: "Joe", lastName: "Wijoyo", number: "xxx-554-0991")
+        ContactStruct(firstName: "Joe", lastName: "Wijoyo", number: "7142134513"),
+        ContactStruct(firstName: "Karen", lastName: "Kauffman", number: "5369324443"),
+        ContactStruct(firstName: "Barrett", lastName: "Lo", number: "7143059942"),
+        ContactStruct(firstName: "Cidney", lastName: "Lee", number: "6930032324"),
+        ContactStruct(firstName: "Hanna", lastName: "Trejo", number: "3105560012"),
     ]
+    
+    var user: LogHorizon.User!
     
     @IBOutlet weak var contactTableView: UITableView!
     
@@ -24,6 +30,10 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         contactTableView.delegate = self
         contactTableView.dataSource = self
+        
+        LogHorizon.fetchUserBy(phone: "6508149260", { (user) in
+            self.user = user
+        })
 
         contactStore.requestAccess(for: . contacts) { (success, error) in
             if success {
@@ -64,7 +74,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -72,6 +82,14 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        LogHorizon.sendInvite(from: self.user, to: contacts[indexPath.row].number)
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        self.present(mainTabBarController, animated: true, completion: nil)
+    }
+    
 
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class NewProfileViewController: UIViewController {
     //var phoneNumber: String!
+    var user: LogHorizon.User!
     
     override func viewDidLoad() {
         super.viewDidLoad()

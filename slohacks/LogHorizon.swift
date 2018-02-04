@@ -21,11 +21,11 @@ class LogHorizon {
                                    onSuccess: @escaping (User) -> Void,
                                    onFailure: @escaping () -> Void,
                                    onCreate: @escaping (() -> Void)) {
-        ref.child("verifications/\(phone)").observeSingleEvent(of: .value, with: {(snapshot) in
+        ref.child("verifications/\(phone)").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let savedCode = snapshot.value as? String else {
                 return onFailure()
             }
-
+            
             ref.child("verifications/\(phone)").removeValue()
 
             guard code == savedCode else {

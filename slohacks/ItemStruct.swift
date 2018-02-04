@@ -1,5 +1,5 @@
 //
-//  Globals.swift
+//  ItemStruct.swift
 //  slohacks
 //
 //  Created by Devin Nicholson on 2/4/18.
@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
-class Globals {
-    static var ref = Database.database().reference()
-    
-    
+struct ItemStruct {
+    let itemName : String
+    let groceryName : String
+    let notes : String
 }
