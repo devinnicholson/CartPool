@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        Globals.ref.child("verifications/\(phoneNumber.text!)").setValue("new");
+        LogHorizon.startVerification(phone: self.phoneNumber.text!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

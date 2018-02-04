@@ -27,23 +27,16 @@ class CodeViewController: UIViewController {
     
 
     @IBAction func verifyCode(_ sender: UIButton) {
-        Globals.ref.child("verifications/\(self.phoneNumber!)").observeSingleEvent(of: .value, with: { (snapshot) in
-            let remoteCode = String(snapshot.value! as! Int)
-            if self.codeTextField.text != remoteCode {
-                // goto phone number screen with error
+        LogHorizon.finishVerification(
+            phone: self.phoneNumber,
+            code: self.codeTextField.text!,
+            onSuccess: { (user) in
+            },
+            onFailure: {
+            },
+            onCreate: {
             }
-            
-            Globals.ref.child("users/\(self.phoneNumber)").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                let name = value?["name"] as? String ?? "IT'S A MYSTERY"
-                if let groupKey = value?["groupKey"] as? String {
-                    // go to group home page
-                }
-                else {
-                    //
-                }
-            })
-        })
+        )
     }
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
