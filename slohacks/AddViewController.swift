@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddViewController: UIViewController {
+    var ref: DatabaseReference!
 
+    
+    @IBOutlet weak var itemTextField: UITextField!
+    @IBOutlet weak var groceryTextField: UITextField!
+    @IBOutlet weak var quantityTextField: UITextField!
+    
+    @IBOutlet weak var addButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

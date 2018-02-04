@@ -1,16 +1,16 @@
 //
-//  ThingsViewController.swift
+//  WelcomeViewController.swift
 //  slohacks
 //
-//  Created by Devin Nicholson on 2/3/18.
+//  Created by Devin Nicholson on 2/4/18.
 //  Copyright © 2018 Devin Nicholson. All rights reserved.
 //
 
 import UIKit
 
-class ThingsViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var itemList: UITableView!
+    @IBOutlet weak var connectButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

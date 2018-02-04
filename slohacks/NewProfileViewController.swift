@@ -1,16 +1,16 @@
 //
-//  ThingsViewController.swift
+//  NewProfileViewController.swift
 //  slohacks
 //
-//  Created by Devin Nicholson on 2/3/18.
+//  Created by Devin Nicholson on 2/4/18.
 //  Copyright © 2018 Devin Nicholson. All rights reserved.
 //
 
 import UIKit
 
-class ThingsViewController: UIViewController {
-
-    @IBOutlet weak var itemList: UITableView!
+class NewProfileViewController: UIViewController {
+    var phoneNumber: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,14 +23,9 @@ class ThingsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let invitesViewController = segue.destination as! InvitesViewController
+        invitesViewController.phoneNumber = self.phoneNumber
     }
-    */
 
 }

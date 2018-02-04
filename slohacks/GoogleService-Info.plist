@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>814093189352-av00trcqtdentns4mf5167dlovu9ihsq.apps.googleusercontent.com</string>
+	<string>371464608039-aiqkgkuook3ks825f13fo12kckqn70nj.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.814093189352-av00trcqtdentns4mf5167dlovu9ihsq</string>
+	<string>com.googleusercontent.apps.371464608039-aiqkgkuook3ks825f13fo12kckqn70nj</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCnZDWqIjMNbxpH4b5WcJu_eHzcNTuyttg</string>
+	<string>AIzaSyCy_wpOKZ0fPsIJkUV4-7yEQ_XcG5DMtMY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>814093189352</string>
+	<string>371464608039</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Nicholson.LostCoastSurfTech</string>
+	<string>Nicholson.slohacks</string>
 	<key>PROJECT_ID</key>
-	<string>lostcoastsurftech-3e344</string>
+	<string>slohacks-efad9</string>
 	<key>STORAGE_BUCKET</key>
-	<string>lostcoastsurftech-3e344.appspot.com</string>
+	<string>slohacks-efad9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:814093189352:ios:723c27b620a7b1d1</string>
+	<string>1:371464608039:ios:10342e66318dc60c</string>
 	<key>DATABASE_URL</key>
-	<string>https://lostcoastsurftech-3e344.firebaseio.com</string>
+	<string>https://slohacks-efad9.firebaseio.com</string>
 </dict>
 </plist>
