@@ -12,6 +12,7 @@
 		0322FEFC20273324009C6391 /* invites_groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFB20273324009C6391 /* invites_groups.png */; };
 		0322FEFF202734C2009C6391 /* members-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFD202734C1009C6391 /* members-header.png */; };
 		0322FF00202734C2009C6391 /* items-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFE202734C1009C6391 /* items-header.png */; };
+		0322FF0220277E19009C6391 /* my-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FF0120277E19009C6391 /* my-profile.png */; };
 		034BED7D202682BA004C9BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034BED7C202682BA004C9BAE /* AppDelegate.swift */; };
 		034BED7F202682BA004C9BAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034BED7E202682BA004C9BAE /* ViewController.swift */; };
 		034BED82202682BA004C9BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034BED80202682BA004C9BAE /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		0322FEFB20273324009C6391 /* invites_groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invites_groups.png; sourceTree = "<group>"; };
 		0322FEFD202734C1009C6391 /* members-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "members-header.png"; sourceTree = "<group>"; };
 		0322FEFE202734C1009C6391 /* items-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-header.png"; sourceTree = "<group>"; };
+		0322FF0120277E19009C6391 /* my-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my-profile.png"; sourceTree = "<group>"; };
 		034BED79202682BA004C9BAE /* slohacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slohacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034BED7C202682BA004C9BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034BED7E202682BA004C9BAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				038A20FA2026F4B00007BB5C /* phone_number.png */,
 				038A20F82026F4770007BB5C /* authentication.png */,
 				03E193CB2027031E0024BD10 /* square_1.png */,
+				0322FF0120277E19009C6391 /* my-profile.png */,
 				03E193D1202706CE0024BD10 /* profile.png */,
 				0322FEFE202734C1009C6391 /* items-header.png */,
 				0322FEFD202734C1009C6391 /* members-header.png */,
@@ -402,6 +405,7 @@
 				03ABA39F2027283000FE51D8 /* PTS55F.ttf in Resources */,
 				03E193CC2027031E0024BD10 /* square_1.png in Resources */,
 				0322FEFC20273324009C6391 /* invites_groups.png in Resources */,
+				0322FF0220277E19009C6391 /* my-profile.png in Resources */,
 				0322FEF820272C89009C6391 /* stores-header.png in Resources */,
 				034BED84202682BA004C9BAE /* Assets.xcassets in Resources */,
 				03ABA3982027221600FE51D8 /* add-icon.png in Resources */,

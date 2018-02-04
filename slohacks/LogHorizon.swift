@@ -85,7 +85,9 @@ class LogHorizon {
         func addItem(name: String, store storeName: String, notes: String?, then callback: @escaping (Item) -> Void) {
             let groupKey = self.groupKey!
             ref.child("groups/\(groupKey)/stores/\(storeName)").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.value != nil {
+                print(snapshot)
+                print (snapshot.key)
+                if (snapshot.exists()) {
                     let storeKey = snapshot.value as! String
                     return self.addItemHelper(name, notes, storeKey, storeName, callback)
                 }
@@ -93,14 +95,14 @@ class LogHorizon {
                 let newStore = ref.child("stores").childByAutoId()
 
                 ref.child("groups/\(groupKey)/stores/\(storeName)").runTransactionBlock({ (data) -> TransactionResult in
-                    if data.value != nil {
+                    if (data.value as? String) != nil {
                         return TransactionResult.abort()
                     }
                     data.value = newStore.key
                     return TransactionResult.success(withValue: data)
                 }, andCompletionBlock: { (error, success, data) in
                     if success {
-                        newStore.setValue(storeName, forKey: "name")
+                        newStore.child("name").setValue(storeName)
                     }
                     else {
                         newStore.removeValue()
@@ -245,7 +247,7 @@ class LogHorizon {
         })
     }
  */
-
+ 
     // Fetches list of stores from a group.
     //
     static func listStoresFrom(group groupKey: String, _ callback: @escaping ([StorePtr]) -> Void) {

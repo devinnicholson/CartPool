@@ -15,18 +15,27 @@ class AddViewController: UIViewController {
     
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var groceryTextField: UITextField!
-    @IBOutlet weak var quantityTextField: UITextField!
+    @IBOutlet weak var notesTextField: UITextField!
+    
+    var user: LogHorizon.User!
     
     @IBOutlet weak var addButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.user = LogHorizon.User.init("6508149260", "Devin Nicholson", "-L4VF570zfHx7pniTtK1")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func addItem(_ sender: UIButton) {
+        self.user.addItem(name: self.itemTextField.text!, store: self.groceryTextField.text!, notes: self.notesTextField.text!, then: { (item) in
+            
+        })
     }
     
 

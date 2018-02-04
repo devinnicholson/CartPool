@@ -16,19 +16,38 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var centerCoordinates = CLLocationCoordinate2D.init(latitude: 35.2828, longitude: -120.6596)
     let clLocationManager = CLLocationManager()
+    var locationToSearch:String!
+    var searchString = ""
+    
+    var storePtr: LogHorizon.StorePtr!
+    var storeItems: [LogHorizon.Item]!
+    
     
     @IBOutlet weak var placesList: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.storeItems = []
         // Do any additional setup after loading the view.
+        storePtr.storeItems( { (items) in
+            self.storeItems = items
+            self.placesList.reloadData()
+        })
+        
         self.mapView.delegate = self
+        
+        // Set search string
+        //self.searchString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + "grocery+stores" + "&location=35.2828,-120.6596&radius=10000&key=" + self.googlePlacesApiKey
+        self.searchString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.locationToSearch.replacingOccurrences(of: " ", with: "+") +
+            "&location=35.2828,-120.6596&radius=10000&key=" + self.googlePlacesApiKey
+        
+        
         
         //Set map region to center coordinates
         var mkCoordinateSpan = MKCoordinateSpan.init()
-        mkCoordinateSpan.latitudeDelta = 0.01
-        mkCoordinateSpan.longitudeDelta = 0.01
+        mkCoordinateSpan.latitudeDelta = 0.1 //0.01
+        mkCoordinateSpan.longitudeDelta = 0.1 //0.01
         var mkCoordinateRegion = MKCoordinateRegion.init()
         mkCoordinateRegion.span = mkCoordinateSpan
         mkCoordinateRegion.center = self.centerCoordinates
@@ -48,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func makeURLRequest () {
-        let url = URL(string: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores&location=35.2828,-120.6596&radius=10000&key=" + googlePlacesApiKey)
+        let url = URL(string: self.searchString)
         
         if self.mapAnnotationsOfSearchResultsLocations != nil {
             self.mapView.removeAnnotations(self.mapAnnotationsOfSearchResultsLocations!)
@@ -129,4 +148,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     */
 
+}
+
+extension MapViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.storeItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var tableViewCell: UITableViewCell
+        tableViewCell = tableView.dequeueReusableCell(withIdentifier: "ItemCell")!
+        tableViewCell.textLabel?.text = self.storeItems[indexPath.row].name
+        return tableViewCell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
 }
