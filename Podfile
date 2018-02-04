@@ -8,6 +8,9 @@ target 'slohacks' do
   # Pods for slohacks
   
     pod 'Firebase/Core'
+    pod 'GooglePlaces'
+    pod 'GooglePlacePicker'
+    pod 'GoogleMaps'
   target 'slohacksTests' do
     inherit! :search_paths
     # Pods for testing
