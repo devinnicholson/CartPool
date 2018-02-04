@@ -36,6 +36,7 @@
 		03E566842026E5BB008A479C /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E566832026E5BB008A479C /* PlacesViewController.swift */; };
 		71CC5EDE825D388319AF65C0 /* Pods_slohacksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7FBC265598A922C0E3378A /* Pods_slohacksUITests.framework */; };
 		98F4380F1018B2A8AF356AFC /* Pods_slohacks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59358C2DFD1F7A5383F0FCE /* Pods_slohacks.framework */; };
+		D018851220271D65004DA552 /* LogHorizon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018851120271D65004DA552 /* LogHorizon.swift */; };
 		F48546DF85FC2DE62F868E0D /* Pods_slohacksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B09CE5D46AD91651213A3D1 /* Pods_slohacksTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		8B09CE5D46AD91651213A3D1 /* Pods_slohacksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_slohacksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B9F99B4B037E88C5CE5A31 /* Pods-slohacksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slohacksUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-slohacksUITests/Pods-slohacksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A59358C2DFD1F7A5383F0FCE /* Pods_slohacks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_slohacks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D018851120271D65004DA552 /* LogHorizon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHorizon.swift; sourceTree = "<group>"; };
 		D8BA1D806C3AEF011E490ACE /* Pods-slohacksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slohacksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-slohacksTests/Pods-slohacksTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 				034BED83202682BA004C9BAE /* Assets.xcassets */,
 				034BED85202682BA004C9BAE /* LaunchScreen.storyboard */,
 				034BED88202682BA004C9BAE /* Info.plist */,
+				D018851120271D65004DA552 /* LogHorizon.swift */,
 			);
 			path = slohacks;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D018851220271D65004DA552 /* LogHorizon.swift in Sources */,
 				03E5667E2026D339008A479C /* MapViewController.swift in Sources */,
 				034BED7F202682BA004C9BAE /* ViewController.swift in Sources */,
 				03E5667C2026C5C1008A479C /* ProfileViewController.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseDatabase
 
 class Globals {
     static var ref = Database.database().reference()
