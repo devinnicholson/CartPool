@@ -6,54 +6,23 @@
 //  Copyright © 2018 Devin Nicholson. All rights reserved.
 //
 
-import os.log
 import FirebaseDatabase
 
 class LogHorizon {
     static let ref = Database.database().reference()
-    static let log = OSLog(subsystem: "com.cartpool.LogHorizon", category: "firebase")
 
-    // Inserts a verification record, sending a text message.
-    //
-    static func sendVerification(phone: String) {
+    // MARK: verification
+
+    static func startVerification(phone: String) {
         ref.child("verifications/\(phone)").setValue("new");
     }
 
-    class User {
-        let phone, name, groupKey: String
-
-        init(_ phone: String, _ name: String, _ groupKey: String) {
-            self.phone = phone
-            self.name = name
-            self.groupKey = groupKey
-        }
-
-        func groupStores(_ callback: @escaping ([StorePtr]?) -> Void) {
-            listStoresFrom(group: self.groupKey, callback)
-        }
-    }
-
-    static func fetchUserBy(phone: String, _ callback: @escaping (User?) -> Void) {
-        ref.child("users/\(phone)").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let userValue = snapshot.value as! [String: Any?]?,
-                let name = userValue["name"] as! String?,
-                let groupKey = userValue["groupKey"] as! String? {
-                callback(User(phone, name, groupKey))
-            }
-            else {
-                callback(nil)
-            }
-        })
-    }
-
-    // Checks and clears the verification code. On success, calls back with name and groupKey.
-    //
-    static func checkVerification(phone: String, code: String,
-                                  onSuccess: @escaping (User) -> Void,
-                                  onFailure: @escaping () -> Void,
-                                  onCreate: @escaping (() -> Void)) {
+    static func finishVerification(phone: String, code: String,
+                                   onSuccess: @escaping (User) -> Void,
+                                   onFailure: @escaping () -> Void,
+                                   onCreate: @escaping (() -> Void)) {
         ref.child("verifications/\(phone)").observeSingleEvent(of: .value, with: {(snapshot) in
-            guard let savedCode = snapshot.value as! String? else{
+            guard let savedCode = snapshot.value as? String else {
                 return onFailure()
             }
 
@@ -74,23 +43,131 @@ class LogHorizon {
         })
     }
 
-    // Fetches current invites for user. On success, calls back with
-    //
+    // MARK: users
+
+    class User {
+        let phone, name: String
+        var groupKey: String?
+
+        init(_ phone: String, _ name: String, _ groupKey: String?) {
+            self.phone = phone
+            self.name = name
+            self.groupKey = groupKey
+        }
+
+        func setGroup(_ groupKey: String) {
+            self.groupKey = groupKey
+            ref.updateChildValues([
+                "users/\(self.phone)/groupKey": groupKey,
+                "groups/\(groupKey)/members/\(self.name)": self.phone,
+            ])
+        }
+
+        func groupStores(_ callback: @escaping ([StorePtr]) -> Void) {
+            if self.groupKey != nil {
+                listStoresFrom(group: self.groupKey!, callback)
+            }
+            else {
+                callback([])
+            }
+        }
+
+        func groupMembers(_ callback: @escaping ([UserPtr]) -> Void) {
+            if self.groupKey != nil {
+                listUsersFrom(group: self.groupKey!, callback)
+            }
+            else {
+                callback([])
+            }
+        }
+    }
+
+    class UserPtr {
+        let phone, name: String
+
+        init(_ phone: String, _ name: String) {
+            self.phone = phone
+            self.name = name
+        }
+
+        func user(_ callback: @escaping (User?) -> Void) {
+            fetchUserBy(phone: self.phone, callback)
+        }
+    }
+
+    static func fetchUserBy(phone: String, _ callback: @escaping (User?) -> Void) {
+        ref.child("users/\(phone)").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let userValue = snapshot.value as? [String: String] {
+                callback(User(phone, userValue["name"]!, userValue["groupKey"]))
+            }
+            else {
+                callback(nil)
+            }
+        })
+    }
+
+    static func listUsersFrom(group groupKey: String, _ callback: @escaping ([UserPtr]) -> Void) {
+        ref.child("groups/\(groupKey)/members").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let userValues = snapshot.value as? [String: String] else {
+                return callback([])
+            }
+
+            var userPtrs = [UserPtr]()
+            for (name, phone) in userValues {
+                userPtrs.append(UserPtr(phone, name))
+            }
+            callback(userPtrs)
+        })
+    }
+
+    static func createUser(phone: String, name: String, groupKey: String?) -> User {
+        ref.child("users/\(phone)/name").setValue(name)
+        let user = User(phone, name, nil)
+        if groupKey != nil {
+            user.setGroup(groupKey!)
+        }
+        return user
+    }
+
+    // MARK: items
 
     class Item {
-        let name, notes, userPhone, addedAt: String
+        let key, name, userPhone, addedAt, storeKey, storeName: String
+        let notes: String?
 
-        init(name: String, notes: String, userPhone: String, addedAt: String) {
+        init(_ key: String, _ name: String, _ notes: String?, _ userPhone: String, _ addedAt: String, _ storeKey: String, _ storeName: String) {
+            self.key = key
             self.name = name
             self.notes = notes
             self.userPhone = userPhone
             self.addedAt = addedAt
+            self.storeKey = storeKey
+            self.storeName = storeName
         }
 
         func user(_ callback: @escaping (User?) -> Void) {
             return fetchUserBy(phone: userPhone, callback)
         }
     }
+
+    static func listItemsFrom(store: String, _ callback: @escaping ([Item]) -> Void) {
+        ref.child("stores/\(store)").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let storeValue = snapshot.value as? [String: Any],
+                let itemValues = storeValue["items"] as? [String: [String: String]] else {
+                return callback([])
+            }
+
+            let storeName = storeValue["name"] as! String
+            var items = [Item]()
+            for (key, values) in itemValues {
+                items.append(Item(key, values["name"]!, values["notes"], values["userPhone"]!, values["addedAt"]!, store, storeName))
+            }
+            callback(items)
+        })
+    }
+
+    // MARK: stores
+
     class StorePtr {
         let key: String
         let name: String
@@ -103,6 +180,10 @@ class LogHorizon {
         func store(_ callback: (Store?) -> Void) {
             callback(nil)
             // TODO(devin): fetchStoreBy(key: self.key, callback)
+        }
+
+        func storeItems(_ callback: @escaping ([Item]) -> Void) {
+            listItemsFrom(store: self.key, callback)
         }
     }
 
@@ -126,10 +207,10 @@ class LogHorizon {
 
     // Fetches list of stores from a group.
     //
-    static func listStoresFrom(group groupKey: String, _ callback: @escaping ([StorePtr]?) -> Void) {
+    static func listStoresFrom(group groupKey: String, _ callback: @escaping ([StorePtr]) -> Void) {
         ref.child("groups/\(groupKey)/stores").observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let storeValues = snapshot.value as! [String: String]? else {
-                return callback(nil)
+            guard let storeValues = snapshot.value as? [String: String] else {
+                return callback([])
             }
 
             var storePtrs = [StorePtr]()
@@ -139,6 +220,8 @@ class LogHorizon {
             callback(storePtrs)
         })
     }
+
+
 }
 /*
 
