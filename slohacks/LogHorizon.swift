@@ -43,6 +43,14 @@ class LogHorizon {
         })
     }
 
+    static func sendInvite(from: User, to: String) {
+        ref.child("invites/\(to)").updateChildValues([
+            "fromUserPhone": from.phone,
+            "fromUserName": from.name,
+            "groupKey": from.groupKey!
+        ])
+    }
+
     // MARK: users
 
     class User {
@@ -246,7 +254,7 @@ class LogHorizon {
         })
     }
  */
- 
+
     // Fetches list of stores from a group.
     //
     static func listStoresFrom(group groupKey: String, _ callback: @escaping ([StorePtr]) -> Void) {
