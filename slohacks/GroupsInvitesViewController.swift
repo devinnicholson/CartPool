@@ -1,27 +1,19 @@
 //
-//  PlacesViewController.swift
+//  GroupsInvitesViewController.swift
 //  slohacks
 //
-//  Created by Devin Nicholson on 2/3/18.
+//  Created by Devin Nicholson on 2/4/18.
 //  Copyright © 2018 Devin Nicholson. All rights reserved.
 //
 
 import UIKit
-import FirebaseDatabase
 
-class PlacesViewController: UIViewController{
-    
-    var ref: DatabaseReference?
-    var placesData = [String]()
-    
-    @IBOutlet weak var placesList: UITableView!
-    
+class GroupsInvitesViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        //placesList.delegate = self
-       // placesList.backgroundView = UIImageView(image: UIImage(named: "gradient_background.png"))
 
-        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,10 +21,7 @@ class PlacesViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placesData.count
-    }
-    
+
     /*
     // MARK: - Navigation
 

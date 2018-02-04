@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0322FEF820272C89009C6391 /* stores-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEF720272C89009C6391 /* stores-header.png */; };
+		0322FEFA202732DD009C6391 /* GroupsInvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322FEF9202732DD009C6391 /* GroupsInvitesViewController.swift */; };
+		0322FEFC20273324009C6391 /* invites_groups.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFB20273324009C6391 /* invites_groups.png */; };
+		0322FEFF202734C2009C6391 /* members-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFD202734C1009C6391 /* members-header.png */; };
+		0322FF00202734C2009C6391 /* items-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322FEFE202734C1009C6391 /* items-header.png */; };
 		034BED7D202682BA004C9BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034BED7C202682BA004C9BAE /* AppDelegate.swift */; };
 		034BED7F202682BA004C9BAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034BED7E202682BA004C9BAE /* ViewController.swift */; };
 		034BED82202682BA004C9BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034BED80202682BA004C9BAE /* Main.storyboard */; };
@@ -17,6 +22,13 @@
 		038A20F22026EA290007BB5C /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A20F12026EA290007BB5C /* CodeViewController.swift */; };
 		038A20F92026F4770007BB5C /* authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A20F82026F4770007BB5C /* authentication.png */; };
 		038A20FB2026F4B00007BB5C /* phone_number.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A20FA2026F4B00007BB5C /* phone_number.png */; };
+		03ABA391202720DE00FE51D8 /* gradient_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA390202720DD00FE51D8 /* gradient_background.png */; };
+		03ABA3982027221600FE51D8 /* add-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA3932027221600FE51D8 /* add-icon.png */; };
+		03ABA3992027221600FE51D8 /* list-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA3942027221600FE51D8 /* list-icon.png */; };
+		03ABA39A2027221600FE51D8 /* profile-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA3952027221600FE51D8 /* profile-icon.png */; };
+		03ABA39B2027221600FE51D8 /* group-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA3962027221600FE51D8 /* group-icon.png */; };
+		03ABA39D2027226A00FE51D8 /* home-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA39C2027226A00FE51D8 /* home-icon.png */; };
+		03ABA39F2027283000FE51D8 /* PTS55F.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03ABA39E2027282A00FE51D8 /* PTS55F.ttf */; };
 		03E193C82026F7780024BD10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03E193C72026F7780024BD10 /* GoogleService-Info.plist */; };
 		03E193CA2026FDAE0024BD10 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E193C92026FDAE0024BD10 /* Globals.swift */; };
 		03E193CC2027031E0024BD10 /* square_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E193CB2027031E0024BD10 /* square_1.png */; };
@@ -58,6 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0322FEF720272C89009C6391 /* stores-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stores-header.png"; sourceTree = "<group>"; };
+		0322FEF9202732DD009C6391 /* GroupsInvitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsInvitesViewController.swift; sourceTree = "<group>"; };
+		0322FEFB20273324009C6391 /* invites_groups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invites_groups.png; sourceTree = "<group>"; };
+		0322FEFD202734C1009C6391 /* members-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "members-header.png"; sourceTree = "<group>"; };
+		0322FEFE202734C1009C6391 /* items-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "items-header.png"; sourceTree = "<group>"; };
 		034BED79202682BA004C9BAE /* slohacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slohacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		034BED7C202682BA004C9BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034BED7E202682BA004C9BAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +91,13 @@
 		038A20F12026EA290007BB5C /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		038A20F82026F4770007BB5C /* authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = authentication.png; sourceTree = "<group>"; };
 		038A20FA2026F4B00007BB5C /* phone_number.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone_number.png; path = ../../../phone_number.png; sourceTree = "<group>"; };
+		03ABA390202720DD00FE51D8 /* gradient_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient_background.png; sourceTree = "<group>"; };
+		03ABA3932027221600FE51D8 /* add-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-icon.png"; sourceTree = "<group>"; };
+		03ABA3942027221600FE51D8 /* list-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-icon.png"; sourceTree = "<group>"; };
+		03ABA3952027221600FE51D8 /* profile-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-icon.png"; sourceTree = "<group>"; };
+		03ABA3962027221600FE51D8 /* group-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-icon.png"; sourceTree = "<group>"; };
+		03ABA39C2027226A00FE51D8 /* home-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-icon.png"; sourceTree = "<group>"; };
+		03ABA39E2027282A00FE51D8 /* PTS55F.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTS55F.ttf; sourceTree = "<group>"; };
 		03E193C72026F7780024BD10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		03E193C92026FDAE0024BD10 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		03E193CB2027031E0024BD10 /* square_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_1.png; sourceTree = "<group>"; };
@@ -156,6 +180,7 @@
 		034BED7B202682BA004C9BAE /* slohacks */ = {
 			isa = PBXGroup;
 			children = (
+				03ABA39E2027282A00FE51D8 /* PTS55F.ttf */,
 				038A20F52026F07C0007BB5C /* images */,
 				03E566832026E5BB008A479C /* PlacesViewController.swift */,
 				03E5666B2026B967008A479C /* ContactStruct.swift */,
@@ -165,6 +190,7 @@
 				034BED7E202682BA004C9BAE /* ViewController.swift */,
 				03E5666D2026B9A8008A479C /* ContactViewController.swift */,
 				034BED80202682BA004C9BAE /* Main.storyboard */,
+				0322FEF9202732DD009C6391 /* GroupsInvitesViewController.swift */,
 				03E193D3202713060024BD10 /* InvitesViewController.swift */,
 				03E193CF202706A80024BD10 /* NewProfileViewController.swift */,
 				03E193CD2027039A0024BD10 /* WelcomeViewController.swift */,
@@ -205,10 +231,20 @@
 		038A20F52026F07C0007BB5C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0322FEFB20273324009C6391 /* invites_groups.png */,
 				038A20FA2026F4B00007BB5C /* phone_number.png */,
 				038A20F82026F4770007BB5C /* authentication.png */,
 				03E193CB2027031E0024BD10 /* square_1.png */,
 				03E193D1202706CE0024BD10 /* profile.png */,
+				0322FEFE202734C1009C6391 /* items-header.png */,
+				0322FEFD202734C1009C6391 /* members-header.png */,
+				03ABA390202720DD00FE51D8 /* gradient_background.png */,
+				03ABA3932027221600FE51D8 /* add-icon.png */,
+				03ABA3962027221600FE51D8 /* group-icon.png */,
+				03ABA3942027221600FE51D8 /* list-icon.png */,
+				03ABA3952027221600FE51D8 /* profile-icon.png */,
+				0322FEF720272C89009C6391 /* stores-header.png */,
+				03ABA39C2027226A00FE51D8 /* home-icon.png */,
 			);
 			name = images;
 			path = "New Group";
@@ -353,12 +389,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ABA39A2027221600FE51D8 /* profile-icon.png in Resources */,
+				0322FF00202734C2009C6391 /* items-header.png in Resources */,
 				034BED87202682BA004C9BAE /* LaunchScreen.storyboard in Resources */,
 				03E193C82026F7780024BD10 /* GoogleService-Info.plist in Resources */,
 				038A20FB2026F4B00007BB5C /* phone_number.png in Resources */,
 				038A20F92026F4770007BB5C /* authentication.png in Resources */,
+				03ABA391202720DE00FE51D8 /* gradient_background.png in Resources */,
+				03ABA39B2027221600FE51D8 /* group-icon.png in Resources */,
+				03ABA39D2027226A00FE51D8 /* home-icon.png in Resources */,
+				0322FEFF202734C2009C6391 /* members-header.png in Resources */,
+				03ABA39F2027283000FE51D8 /* PTS55F.ttf in Resources */,
 				03E193CC2027031E0024BD10 /* square_1.png in Resources */,
+				0322FEFC20273324009C6391 /* invites_groups.png in Resources */,
+				0322FEF820272C89009C6391 /* stores-header.png in Resources */,
 				034BED84202682BA004C9BAE /* Assets.xcassets in Resources */,
+				03ABA3982027221600FE51D8 /* add-icon.png in Resources */,
+				03ABA3992027221600FE51D8 /* list-icon.png in Resources */,
 				034BED82202682BA004C9BAE /* Main.storyboard in Resources */,
 				03E193D2202706CE0024BD10 /* profile.png in Resources */,
 			);
@@ -554,6 +601,7 @@
 				03E566742026C283008A479C /* ThingsViewController.swift in Sources */,
 				03E193CE2027039A0024BD10 /* WelcomeViewController.swift in Sources */,
 				03E5666C2026B967008A479C /* ContactStruct.swift in Sources */,
+				0322FEFA202732DD009C6391 /* GroupsInvitesViewController.swift in Sources */,
 				03E566842026E5BB008A479C /* PlacesViewController.swift in Sources */,
 				038A20F22026EA290007BB5C /* CodeViewController.swift in Sources */,
 				03E193D4202713060024BD10 /* InvitesViewController.swift in Sources */,

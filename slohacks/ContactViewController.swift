@@ -12,7 +12,6 @@ import Contacts
 class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var contactStore = CNContactStore()
-    var contactd = [ContactStruct]()
     
     var contacts = [
         ContactStruct(firstName: "Hi", lastName: "hi3", number: "12345"),        ContactStruct(firstName: "Hi3", lastName: "hi33", number: "123435")

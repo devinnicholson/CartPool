@@ -39,9 +39,10 @@ class InvitesViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = invites[indexPath.row]
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
+        let invitesToDisplay = invites[indexPath.row]
+        cell.textLabel?.text = invitesToDisplay
         return cell
     }
     /*

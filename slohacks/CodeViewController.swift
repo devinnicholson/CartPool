@@ -46,9 +46,9 @@ class CodeViewController: UIViewController {
         })
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let newProfileViewController = segue.destination as! NewProfileViewController
         newProfileViewController.phoneNumber = self.phoneNumber
-    }
+    }*/
 
 }

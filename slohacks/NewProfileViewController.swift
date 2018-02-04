@@ -9,7 +9,7 @@
 import UIKit
 
 class NewProfileViewController: UIViewController {
-    var phoneNumber: String!
+    //var phoneNumber: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,9 @@ class NewProfileViewController: UIViewController {
     }
     
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let invitesViewController = segue.destination as! InvitesViewController
         invitesViewController.phoneNumber = self.phoneNumber
-    }
+    }*/
 
 }
