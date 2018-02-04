@@ -27,6 +27,10 @@ class LogHorizon {
             self.name = name
             self.groupKey = groupKey
         }
+
+        func groupStores(_ callback: @escaping ([StorePtr]?) -> Void) {
+            listStoresFrom(group: self.groupKey, callback)
+        }
     }
 
     static func fetchUserBy(phone: String, _ callback: @escaping (User?) -> Void) {
