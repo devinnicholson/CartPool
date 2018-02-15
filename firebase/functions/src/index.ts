@@ -5,9 +5,9 @@ admin.initializeApp(functions.config().firebase);
 
 import * as twilio from 'twilio';
 
-const TWILIO_SID = 'AC352002a54aa26de0b0a8031269af5707';
-const TWILIO_AUTH_TOKEN = '412ef2324feb3f075168f101de8b494d';
-const TWILIO_NUMBER = '+18056670744';
+const TWILIO_SID = '';
+const TWILIO_AUTH_TOKEN = '';
+const TWILIO_NUMBER = '';
 
 export const onRegistration = functions.database.ref('/verifications/{phoneNumber}').onWrite(event => {
     if (event.data.val() !== 'new') return null;
